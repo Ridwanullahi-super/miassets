@@ -1,0 +1,15 @@
+<td title="Edit renter" class="icon"
+                         onclick="
+                          $('#FormEdit').attr('action', '/admin/renter/update/<%=renter.id  %>');
+                          $('#email').val('<%=renter.user.email%>');
+                          $('#phone_number').val('<%=renter.user.phone_number%>');
+                          $('#rent_time').val('<%-renter.rent_time %>');
+                          $('#due_time').val('<%-renter.due_time %>');
+                          $('#address').val('<%-renter.user.address %>');
+                          $('#surname').val('<%=`${renter.user.surname.slice(0,1).toUpperCase()+renter.user.surname.slice(1).toLowerCase()}`%>');
+                          $('#first_name').val('<%=`${renter.user.first_name.slice(0,1).toUpperCase()+renter.user.first_name.slice(1).toLowerCase()}`%>');
+                          $('#other_name').val('<%=`${renter.user.other_name? renter.user.other_name.slice(0,1).toUpperCase()+renter.user.other_name.slice(1).toLowerCase() :``}` %>');
+                          
+                         " >
+                          <!-- <i class="fa fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#editModal"></i> -->
+                        </td>
