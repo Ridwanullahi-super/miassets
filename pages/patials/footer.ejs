@@ -1,0 +1,90 @@
+
+                              <!-- jquery link -->
+                              <script src="/js/jquery.min.js"></script>
+                              <script>
+                                $(window).on('load', function () {
+                                  setTimeout(function () {
+                                    $(".preloader").fadeOut('slow');
+                                  }, 600);
+                                });
+                              </script>
+                              <script src="/vendor/chart.js/Chart.min.js"></script>
+                              <script src="/js/bootstrap.bundle.min.js"></script>
+
+                              <!-- Core plugin JavaScript-->
+                              <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                              <!-- Custom scripts for all pages-->
+                              <script src="/js/sb-admin-2.min.js"></script>
+
+                              <!-- Page level plugins -->
+                              <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+                              <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+                              <!-- Page level custom scripts -->
+                              <script src="/js/demo/datatables-demo.js"></script>
+
+                              <!--fontawesome javscript -->
+                              <script src="/js/all.min.js"> </script>
+<% for( const feedback of flash() ) { %>
+  <center><div
+  class="alert alert-<%= feedback.type.toLowerCase() == 'error'? 'danger' : feedback.type.toLowerCase() %> alert-dismissible fade show"
+  role="alert" style="position: absolute; top: 4vh; left: 50%; transform: translateX(-50%);" id="flash-message">
+  <strong>
+      <%= feedback.type %>
+    </strong>
+    <%= feedback.message %>
+      <button type="button" class="btn-close fade show" data-bs-dismiss="alert"  aria-bs-label="Close"></button>
+  </div> </center>
+      <script>
+        $(document).ready(function () {
+            $('#flash-message').show();
+            $('#flash-message').delay(5000).fadeOut();
+        });
+    </script>
+
+  <% } %>
+
+      <% if (locals.formErrors) { %>
+      <script>
+        <% for (const name in locals.formBody) { const value=locals.formBody[name]; %>
+          var input = document.querySelector('[name=<%- name %>]')
+            if (input.type == "radio") {
+            $('[name=<%- name %>][value=<%- value %>]').prop('checked', true)
+                }else{
+                input.value= "<%- value %>"
+                  }
+                  <% } %>
+
+                    <% for (const name in locals.formErrors) { 
+                     var msg=locals.formErrors[name].msg; %>
+                    //  console.log(locals.formErrors);
+                      document.querySelector('[name=<%= name %>]')?.classList.add('is-invalid')
+                        $('[name=<%- name %>]').parent().append('<div class="alert mt-4 alert-danger"><%- msg %></div>')
+                        <% } %>
+                        </script>
+                          <% } %>
+                          
+                              <!-- Footer -->
+                              <footer class="sticky-footer bg-white">
+                                <div class="container my-auto">
+                                  <div class="copyright text-center my-auto">
+                                    <span>Copyright &copy; Supercoded 2023</span>
+                                  </div>
+                                </div>
+                              </footer>
+                              <!-- End of Footer -->
+                              </div>
+                              <!-- End of Content Wrapper -->
+                              </div>
+                              <!-- End of Page Wrapper -->
+
+                              <!-- Scroll to Top Button-->
+                              <a class="scroll-to-top rounded" href="#page-top">
+                                <i class="fas fa-angle-up"></i>
+                              </a>
+
+                           
+                              </body>
+
+                              </html>

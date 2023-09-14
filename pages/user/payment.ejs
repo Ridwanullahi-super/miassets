@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" type="image/x-icon" href="/img/logo.jpg">
+
+
+  <title>Add-Asset</title>
+
+  <!-- Custom fonts for this template -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="/css/main-style.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="/css/sb-admin-2.css" rel="stylesheet" />
+
+  <!-- Custom styles for this page -->
+  <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/all.min.css" />
+  <link rel="stylesheet" href="/css/spinner.css">
+
+</head>
+
+<body id="page-top">
+
+  <div class="preloader is-active">
+    <div class="preloader__wrap">
+      <div class="spinner-grow text-danger" style="background-color: purple;"></div>
+    </div>
+  </div>
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-purple sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/user/home">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-house fa-2x"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">
+          <b style="font-family: Georgia; color: gold">Mi</b>-<i>Assets</i>
+        </div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-1 bg-warning" />
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/user/home">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider" />
+
+      <!-- Heading -->
+      <div class="sidebar-heading">information</div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item side-nav">
+        <a class="nav-link collapsed" href="/user/assets" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-tools"></i>
+          <span>Avalable Assets</span>
+        </a>
+
+      </li>
+      <li class="nav-item active side-nav">
+        <a class="nav-link collapsed" href="" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-house"></i>
+          <span>CheckOut Assets</span>
+        </a>
+
+      </li>
+      <li class="nav-item side-nav">
+        <a class="nav-link collapsed" href="/user/assets" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-bank"></i>
+          <span>Payment </span>
+        </a>
+
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/user/rent-details">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Rents Details</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/user/due-date">
+          <i class="fas fa-fw fa-clock"></i>
+          <span>Due Time</span></a>
+      </li>
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/user/outstand">
+          <i class="fas fa-fw fa-desktop"></i>
+          <span>Outstanding</span></a>
+      </li>
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/user/complaint">
+          <i class="fas fa-fw fa-mail-bulk"></i>
+          <span>Complaint</span></a>
+      </li>
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/user/profile">
+          <i class="fas fa-fw fa-user-circle"></i>
+          <span>Profile</span></a>
+      </li>
+
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#my_Modal">
+          <i class="fas fa-fw fa-sign-out"></i>
+          <span>Sign Out</span></a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block" />
+
+      <!-- Divider -->
+      <div class="sidebar-card d-none d-lg-flex">
+        <% if (user.photo) { %>
+          <img class="sidebar-card-illustration mb-2" src="<%= user.photo %>" alt="..." />
+         
+        <% } else{%>
+          <img class="sidebar-card-illustration mb-2" src="/img/profile.jpg" alt="..." />
+
+          <% } %>        <p class="text-center mb-2">
+          <strong title="my profile"> <a href="/user/profile"><%- include("../patials/userName") %></a></strong> welcome to Mi assets,
+        </p>
+      </div>
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <!-- Sidebar Toggle (Topbar) -->
+          <form class="form-inline">
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+              <i class="fa fa-bars"></i>
+            </button>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <%- include("../patials/header") %>
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Add-new Reters -->
+          <p>Click pay for Rent to Pay for the <%= Asset.name %> you want to rent. and also, follow the instructions to complete your transaction.</p>
+          <div class="card">
+            <form action="" method="POST">
+              <div class="container">
+              <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6 py-2">
+                     <b>Asset Name</b>
+                      <p><%= Asset.name %></p>
+                    </div>
+
+                  <div class="col-sm-6 col-md-6 col-lg-6 py-2">
+                   <b> Address</b>
+                    <p><%= Asset.address %></p>
+                  </div>
+                    </div>
+                    </div>
+                    <div class="card-body mb-1">
+                      <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                          <label for="" class="form-label"><b>Rent Time</b></label>
+                          <P><%= new Date().toDateString()%></P>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                          <div class="mb-3">
+                            <label for="" class="form-label"><b>Month</b></label>
+                            <div class="input-group" style="width: 60px;">
+                            <input type="number" class="form-control"  placeholder="number of months" id="month_number" name="month">
+                          </div>
+                            
+                       
+                          </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                          <label for="" class="form-label"><b>Due Date</b></label>
+                         <p id="due_date"> </p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="row-sm-6 col-md-6 col-lg-6">
+                          <div class="py-3">
+                          <b>  Amount</b>
+                            <p><%= Asset.amount %></p>
+                          </div>
+                        </div>
+                        <div class="row-sm-6 col-md-6 col-lg-6">
+                         <b> Owner</b>
+                          <p><%= Asset.admin.surname.slice(0,1).toUpperCase()+Asset.admin.surname.slice(1) + " " + Asset.admin.first_name.slice(0,1).toUpperCase()+Asset.admin.first_name.slice(1)  %></p>
+                        </div>
+                      </div>
+                    </div>
+
+                  <div class="mx-auto m-2">
+
+                    <center>
+
+                      <button href="" class=" btn btn-primary">Pay for Rent </button>
+                    </center>
+
+                  </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // new Date(Number(new Date()) + (1* 30 * 24 * 60 * 60 * 1000)).toDateString().slice(0,-5).replace('T', '')
+    document.getElementById('month_number').addEventListener('keyup', function(){
+      let month = document.getElementById('month_number').value
+      if(month == '' || month == '0') return document.getElementById('due_date').innerHTML = ''
+      let due_date = new Date(Number(new Date()) + (month* 30 * 24 * 60 * 60 * 1000)).toDateString()
+      document.getElementById('due_date').innerHTML = due_date
+    })
+  </script>
+  <!-- End of Main Content -->
+  <%- include("../patials/footer.ejs") %>

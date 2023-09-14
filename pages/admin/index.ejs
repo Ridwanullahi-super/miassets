@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" type="image/x-icon" href="/img/logo.jpg">
+
+  <title>Mi-Asset Dashboard</title>
+
+  <!-- libraries -->
+  <!-- <link href="/css/all.min.css" rel="stylesheet" type="text/css" /> -->
+  <link rel="stylesheet" href="/css/all.min.css">
+  <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="/css/main-style.css" rel="stylesheet" type="text/css" />
+  <!-- Custom fonts for this template-->
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet" />
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet" /> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+  <!-- Custom styles for this template-->
+  <link href="/css/sb-admin-2.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/spinner.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+</head>
+
+<body id="page-top">
+
+
+  <div class="preloader is-active">
+    <div class="preloader__wrap">
+      <div class="spinner-grow text-danger" style="background-color: purple;"></div>
+    </div>
+  </div>
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-purple sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin/home">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-house fa-2x"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">
+          <b style="font-family: Georgia; color: gold">Mi</b>-<i>Assets</i>
+        </div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-1 bg-warning" />
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active side-nav">
+        <a class="nav-link" href="admin/home">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider" />
+
+      <!-- Heading -->
+      <div class="sidebar-heading">Add</div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item side-nav">
+        <a class="nav-link collapsed" href="/admin/add-renter" aria-expanded="true"
+          aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Renters</span>
+        </a>
+     
+      </li>
+
+      <!-- Nav Item - fixed assets Collapse Menu -->
+      <li class="nav-item side-nav">
+        <a class="nav-link collapsed" href="/admin/add-asset" 
+          aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Fixed assets</span>
+        </a>
+     
+      </li>
+      <li class="nav-item  side-nav">
+        <a
+          class="nav-link"
+          href="/admin/add-admin"
+          aria-expanded="true"
+          aria-controls="collapseUtilities"
+        >
+          <i class="fas fa-fw fa-users"></i>
+          <span>New Admin</span>
+        </a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider" />
+
+      <!-- Heading -->
+      <div class="sidebar-heading">information</div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item side-nav">
+        <a class="nav-link collapsed" href="/admin/renters"  aria-expanded="true"
+          aria-controls="collapsePages">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Rentals Details</span>
+        </a>
+        
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/admin/assets">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Assets Details</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/admin/depreciate">
+          <i class="fas fa-fw fa-egg"></i>
+          <span>Depreciation</span></a>
+      </li>
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/admin/reminder">
+          <i class="fas fa-fw fa-mail-bulk"></i>
+          <span>Reminders</span></a>
+      </li>
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/admin/profit">
+          <i class="fas fa-fw fa-kiwi-bird"></i>
+          <span>Profit</span></a>
+      </li>
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/admin/profile">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Profile</span></a>
+      </li>
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#my_Modal">
+          <i class="fas fa-fw fa-sign-out"></i>
+          <span>Sign Out</span></a
+        >
+      </li>
+<!-- sign out model -->
+
+<!-- The Modal -->
+<div class="modal" id="my_Modal">
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h4 class="modal-title">Did you want to sign Out?</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+
+    <!-- Modal body -->
+    <div class="modal-body">
+      Are you sure you want to long out?
+    </div>
+
+    <!-- Modal footer -->
+    <div class="modal-footer">
+      <a type="button" href class="btn btn-primary" >Yes</a>
+      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+    </div>
+
+  </div>
+</div>
+</div>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block" />
+
+      
+
+      <!-- Sidebar Message -->
+      <div class="sidebar-card d-none d-lg-flex">
+      <% if (admin.photo) { %>
+        <img class="sidebar-card-illustration mb-2" src="<%= admin.photo %>" alt="" />
+       
+      <% } else{ %>
+      <img class="sidebar-card-illustration mb-2" src="/img/profile.jpg" alt="" />
+<% } %>
+        <p class="text-center mb-2">
+          <strong title="my profile"> <a href="/admin/profile"><%- include("../patials/adminName")  %></a></strong> welcome to Mi assets,
+         
+        </p>
+      </div>
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+
+          <!-- Topbar Navbar -->
+  <%- include("../patials/adminHeader") %>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm bg-purple shadow-sm text-white" style="background-color:purple"><i
+                class="fas fa-download fa-sm text-white"></i> Generate
+              Report</a>
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+            <!-- profit Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        Total Expenses
+                      </div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      #<%= expenses? expenses : "0"%>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Depreciation (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                         Renters
+                      </div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <%= outasset? outasset : '0' %>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-users fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                        assets Rent out
+                      </div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                            <%= outasset? outasset : '0' %>%
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar  progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: <% outasset? outasset : '0' %>%; background-color:purple" aria-valuenow="50"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                       available assets
+                      </div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <%= AssetNumber %>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-database fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Row -->
+
+          <div class="row">
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                    Earnings Overview
+                  </h6>
+                  <div class="dropdown no-arrow">
+                    <!-- <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a> -->
+                    <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                      aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div> -->
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-area">
+                    <div id="myAreaChart"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                    Revenue Sources
+                  </h6>
+                  <div class="dropdown no-arrow">
+                    <!-- <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a> -->
+                    <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                      aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div> -->
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myD"></canvas>
+                  </div>
+                  <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i> Direct
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+        
+
+          
+            </div>
+
+
+            <script src="/js/Chart.min.js"></script>
+            
+            <!-- <script src="/js/Chart.min.js"></script> -->
+     <!-- //line chart -->
+
+     <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        new ApexCharts(document.querySelector("#myAreaChart"), {
+          series: [{
+            name: "Desktops",
+            data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+          }],
+          chart: {
+            height: 350,
+            type: 'line',
+            zoom: {
+              enabled: false
+            }
+          },
+          dataLabels: {
+            enabled: false
+          },
+          stroke: {
+            curve: 'straight'
+          },
+          grid: {
+            row: {
+              colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+              opacity: 0.5
+            },
+          },
+          xaxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+          }
+        }).render();
+      });
+    </script>
+    
+            <script> 
+            //dounbut
+   const result= document.getElementById('myD');
+
+   new Chart(result, {
+              type: 'doughnut',
+              data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                  label: '# of Votes',
+                  data: [12, 19, 3, 5, 2, 3],
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+
+
+
+
+            
+            </script> 
+            <%- include("../patials/footer.ejs") %>

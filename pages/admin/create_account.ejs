@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" type="image/x-icon" href="/img/logo.jpg">
+
+    <title>Add New Renters</title>
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/css/main-style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="/css/sb-admin-2.css" rel="stylesheet" />
+
+    <!-- Custom styles for this page -->
+    <link
+      href="/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <link rel="stylesheet" href="/css/spinner.css">
+
+  </head>
+
+  <body id="page-top">
+    
+  <div class="preloader is-active">
+    <div class="preloader__wrap">
+      <div class="spinner-grow text-danger" style="background-color: purple;"></div>
+    </div>
+  </div>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav sidebar sidebar-dark accordion bg-purple"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          href="/admin/home"
+        >
+          <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-house fa-2x"></i>
+          </div>
+          <div class="sidebar-brand-text mx-3">
+            <b style="font-family: Georgia; color: gold">Mi</b>-<i>Assets</i>
+          </div>
+        </a>
+
+        <li class="nav-item side-nav">
+          <a class="nav-link collapsed" href="/admin/home">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Add</div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item side-nav">
+          <a
+            class="nav-link"
+            href="/admin/add-renter"
+            aria-expanded="true"
+            aria-controls="collapseTwo"
+          >
+            <i class="fas fa-fw fa-user"></i>
+            <span>Renters</span>
+          </a>
+        </li>
+
+        <!-- Nav Item - fixed assets Collapse Menu -->
+        <li class="nav-item side-nav">
+          <a
+            class="nav-link collapsed"
+            href="/admin/add-asset"
+            aria-expanded="true"
+            aria-controls="collapseUtilities"
+          >
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Fixed assets</span>
+          </a>
+        </li>
+        <li class="nav-item  active side-nav">
+          <a
+            class="nav-link "
+            href="/admin/add-admin"
+            aria-expanded="true"
+            aria-controls="collapseUtilities"
+          >
+            <i class="fas fa-fw fa-users"></i>
+            <span>New Admin</span>
+          </a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">information</div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item side-nav">
+          <a
+            class="nav-link "
+            href="/admin/renters"
+            aria-expanded="true"
+            aria-controls="collapsePages"
+          >
+            <i class="fas fa-fw fa-users"></i>
+            <span>Rentals Details</span>
+          </a>
+        </li>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="/admin/assets">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Assets Details</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="/admin/depreciate">
+            <i class="fas fa-fw fa-egg"></i>
+            <span>Depreciation</span></a
+          >
+        </li>
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="/admin/reminder">
+            <i class="fas fa-fw fa-mail-bulk"></i>
+            <span>Reminders</span></a
+          >
+        </li>
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="/admin/profit">
+            <i class="fas fa-fw fa-kiwi-bird"></i>
+            <span>Profit</span></a
+          >
+        </li>
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="/admin/profile">
+            <i class="fas fa-fw fa-circle-user"></i> 
+            <span>Profile</span></a
+          >
+        </li>
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="">
+            <i class="fas fa-fw fa-sign-out"></i>
+            <span>Sign Out</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block" />
+
+        <!-- Divider -->
+        <div class="sidebar-card d-none d-lg-flex">
+          <% if (admin.photo) { %>
+            <img class="sidebar-card-illustration mb-2" src="<%= admin.photo %>" alt="" />
+           
+          <% } else{ %>
+          <img class="sidebar-card-illustration mb-2" src="/img/profile.jpg" alt="" />
+    <% } %>
+          <p class="text-center mb-2">
+            <strong title="my profile"> <a href="/admin/profile"><%- include("../patials/adminName")  %></a></strong> welcome to Mi assets,
+          </p>
+        </div>
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav
+            class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+          >
+            <!-- Sidebar Toggle (Topbar) -->
+            <form class="form-inline">
+              <button
+                id="sidebarToggleTop"
+                class="btn btn-link d-md-none rounded-circle mr-3"
+              >
+                <i class="fa fa-bars"></i>
+              </button>
+            </form>
+
+            <!-- Topbar Navbar -->
+            <%- include("../patials/adminHeader") %>
+
+          </nav>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Add-new Reters -->
+            <div class="card text-white  mx-auto mt-5 ">
+              <div class="card-body bg-purple rounded-start">
+                <center><p class="mx-auto font-weight-bold"> New Admin  </p></center>
+                <form class="wow tada"  action="" method="post">
+                <div class="row rounded-1 my-0 login-cycle">
+                    <div class="col-md-6 col-sm-6 col-lg-6">
+                    <div class="mb-3">
+                      <label for="" class="form-label">Surname</label>
+                      <input type="text"
+                        class="form-control" name="surname" id="" aria-describedby="helpId" placeholder="">
+                    </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                         <div class="mb-3">
+                     <label for="" class="form-label">First Name</label>
+                       <input type="text"
+                         class="form-control" name="first_name" id="" aria-describedby="helpId" placeholder="">
+                     </div>
+
+                    </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="mb-3">
+                          <label for="" class="form-label">Other Name</label>
+                          <input type="text"
+                            class="form-control" name="other_name" id="" aria-describedby="helpId" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-6 col-sm-6">
+
+                        <div class="mb-3">
+                          <label for="" class="form-label">Phone Number</label>
+                          <input type="number"
+                            class="form-control" name="phone_number" id="" aria-describedby="helpId" placeholder="">
+                        </div>
+                            
+                      </div>
+
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6 rounded-pill col-md-6 col-lg-6">
+                        <div class="mb-3 wow flash">
+                          <label for="my-input ">Address</label>
+                          <input type="text"
+                      class="form-control" name="address" id="" aria-describedby="helpId" placeholder="">
+                              </div>
+
+                      </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="mb-3 wow flash">
+                            <label for="my-input ">Email</label>
+                            <input type="email"
+                  class="form-control" name="email" id="" aria-describedby="helpId" maxlength="none" placeholder="">
+                        </div>
+
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                          <div class="mb-3 wow shake">
+                              <label for="my-input">Password</label>
+                              <input type="password"
+                              class="form-control" name="password" id="" aria-describedby="helpId" placeholder="">
+                          </div>
+
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+
+                          <div class="mb-3 wow flash">
+                                   <label for="my-input ">Confirm Password</label>
+                                   <input type="password"
+                              class="form-control"  id="" aria-describedby="helpId" placeholder="">
+                              </div>
+                        </div>
+                      </div>
+                      <center> 
+                          <div class="form-group">
+                            <button class="btn btn-primary mb-2" type="submit">Add Admin</button> 
+                        </div>
+                      </center> 
+                    </div>
+
+                  </form>
+                              </div>
+                        </div>
+                        </div>
+          </div>
+          </div>
+        </div>
+        <!-- End of Main Content -->
+   <!-- End of Main Content -->
+   <%- include("../patials/footer.ejs") %>

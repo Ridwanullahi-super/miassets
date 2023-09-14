@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/img/logo.jpg">
+    <title>login page</title>
+       <!-- Custom fonts for this template -->
+       <link
+       href="/css/bootstrap.min.css"
+       rel="stylesheet"
+       type="text/css"
+     />
+     <link href="/css/main-style.css" rel="stylesheet" type="text/css" />
+    
+ 
+     <!-- Custom styles for this template -->
+     <link href="/css/sb-admin-2.css" rel="stylesheet" />
+     <link rel="stylesheet" href="/css/animate.css">
+ 
+     <!-- Custom styles for this page -->
+     <link
+       href="/vendor/datatables/dataTables.bootstrap4.min.css"
+       rel="stylesheet"
+     />
+     <link rel="stylesheet" href="/css/all.min.css" />
+     <link rel="stylesheet" href="/css/spinner.css">
+
+</head>
+<body>
+  
+
+    <div class="card text-white w-75 mx-auto" style="margin-top:80px">
+      <div class="card-body bg-purple rounded-start">
+        <div class="row rounded-0">
+
+        
+            <div class="col-6 rounded-pill  " >
+              <form class="wow tada" method="POST" action="">
+                <div class="card-body ">
+                            <div class=" wow flash">
+                                <label for="my-input ">Username/Email</label> <br>
+                                <input id="my-input" class="input"  type="text" name="email">
+                            </div>
+                            <div class=" wow shake">
+                                <label for="my-input ">Password</label> <br>
+                                <input id="my-input" class="input" type="password" name="password">
+                            </div>
+                            <br>
+                            <div class="">
+                             <button class="btn btn-primary mx-auto" style="padding-left:10px; padding-right:10px; width:100px" type="submit">Sign In</button>  
+                            </div>
+
+                          </div>
+                        </form>
+
+            </div>
+            <div class="col-md-6 col-sm-6 ">
+              <p> OR log in with social media accounts</p>
+              <div class=" ml-4 w-100 p-3 px-3">
+
+                <a href="#" class="text-white wow flash data-wow-duration = '3s' data-delay ='2s' "><i class="fab fa-facebook social social-icon"></i></a>
+                <a href="#" class="text-white wow shake data-wow-duration = '3s' data-delay ='1s'"><i class="fab fa-twitter social social-icon"></i></a>
+                <a href="#" class="text-white wow slideInLeft data-wow-duration = '2s' data-delay ='3s'"><i class="fab fa-linkedin social social-icon" aria-hidden="true"></i></a>
+                <a href="#" class="text-white wow slideInRight data-wow-duration = '3s' data-delay ='2s'"><i class="fab fa-instagram social social-icon"></i></a>
+              </div> <br>
+      <div class=""><a class="btn btn-success border-start w-100 wow slideInRight data-wow-duration = '3s'" href="/create-account">Create Account</a></div>  
+         <br>
+        <a class='btn btn-success border-end w-100 wow slideInLeft data-wow-duration="2s" data-wow-delay="1s"' href="/user/forget-password"> Forget Password</a>
+
+                </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    </footer>
+  </body>
+  <script src="/js/all.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/wow.min.js"></script>
+  <script src="/js/jquery.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+<%- include("../patials/footer.ejs") %>
+    
+ 
+
+
+                     

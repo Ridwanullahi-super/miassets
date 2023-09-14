@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" type="image/x-icon" href="/img/logo.jpg">
+
+    <title>Outstanding</title>
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/css/main-style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="/css/sb-admin-2.css" rel="stylesheet" />
+
+    <!-- Custom styles for this page -->
+    <link
+      href="/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <link rel="stylesheet" href="/css/spinner.css">
+
+  </head>
+
+  <div class="preloader is-active">
+    <div class="preloader__wrap">
+      <div class="spinner-grow text-danger" style="background-color: purple;"></div>
+    </div>
+  </div>
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-purple sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/user/home">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-house fa-2x"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">
+          <b style="font-family: Georgia; color: gold">Mi</b>-<i>Assets</i>
+        </div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-1 bg-warning" />
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/user/home">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider" />
+
+      <!-- Heading -->
+      <div class="sidebar-heading">information</div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item side-nav">
+        <a class="nav-link collapsed" href="/user/assets" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-tools"></i>
+          <span>Avalable Assets</span>
+        </a>
+
+      </li>
+      <li class="nav-item  side-nav">
+        <a class="nav-link" href="" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-house"></i>
+          <span>CheckOut Assets</span>
+        </a>
+
+      </li>
+      <li class="nav-item side-nav">
+        <a class="nav-link " href="/user/assets" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-bank"></i>
+          <span>Payment </span>
+        </a>
+
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/user/rent-details">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Rents Details</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+   
+      <li class="nav-item active side-nav">
+        <a class="nav-link collapsed" href="/user/outstand">
+          <i class="fas fa-fw fa-desktop"></i>
+          <span>Outstanding</span></a>
+      </li>
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/user/complaint">
+          <i class="fas fa-fw fa-mail-bulk"></i>
+          <span>Complaint</span></a>
+      </li>
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="/user/profile">
+          <i class="fas fa-fw fa-user-cicle"></i>
+          <span>Profile</span></a>
+      </li>
+
+      <li class="nav-item side-nav">
+        <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#my_Modal">
+          <i class="fas fa-fw fa-sign-out"></i>
+          <span>Sign Out</span></a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block" />
+
+      <!-- Divider -->
+      <div class="sidebar-card d-none d-lg-flex">
+        <% if (user.photo) { %>
+          <img class="sidebar-card-illustration mb-2" src="<%= user.photo %>" alt="..." />
+         
+        <% } else{%>
+          <img class="sidebar-card-illustration mb-2" src="/img/profile.jpg" alt="..." />
+
+          <% } %>        <p class="text-center mb-2">
+          <strong title="my profile"> <a href="/user/profile"><%- include("../patials/userName") %></a></strong> welcome to Mi assets,
+        </p>
+      </div>
+    </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav
+            class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+          >
+            <!-- Sidebar Toggle (Topbar) -->
+            <form class="form-inline">
+              <button
+                id="sidebarToggleTop"
+                class="btn btn-link d-md-none rounded-circle mr-3"
+              >
+                <i class="fa fa-bars"></i>
+              </button>
+            </form>
+
+            <!-- Topbar Navbar -->
+          <%- include("../patials/header") %>
+          </nav>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <p class="mb-4">
+              The expired rents and dued date with their appropriate amount is as follows.
+            </p> <br>
+            <!-- Page Heading -->
+            <!-- <a class="btn btn-primary my-2" href=""  data-bs-toggle="modal" data-bs-target="#myModal"
+                >Add Profit</a
+              > -->
+            </p>
+
+          
+          </div>
+          
+        
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                  Outstanding Rents and Dued Dates
+                </h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                  <thead>
+                    <tr>
+                        <th class="text-center">Asset Name</th>
+                      <th class="text-center">Amount</th>
+                      <th class="text-center">Due Date</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th class="text-center">Asset Name</th>
+                      <th class="text-center">Amount</th>
+                      <th class="text-center">Due Date</th>
+                      <th></th>
+                    </tr>
+                  </tfoot>
+                  <tbody> 
+
+                    <% for( let outstanding of outstandings ) { %>
+                      <tr>
+                         <td><%= outstanding.asset.name%></td>
+                         <td><%= outstanding.amount %></td>
+                         <td><%= outstanding.due_time.toDateString()%></td>
+                         <td>
+                          <a href=""> <a href="/user/payment/<%=outstanding.asset.id%>">
+                            <i class="fa fa-arrow-right" title="click me to complete rent process"></i></a>
+                          </a></td>
+                        </tr>
+                        
+                        <% } %>
+
+                      <div class="modal fade " id="editModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header" style=" background-color: purple; color:aliceblue">
+                              <h5 class="modal-title" id="exampleModalLabel">Edit expense </h5>
+                              <button class="close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="text-white">×</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <div>
+                              <form method="POST" id="FormEdit">
+                                <div class="mb-3">
+                                  <label for="" class="form-label">expenses</label>
+                                  <input type="text"
+                                    class="form-control" name="expense" id="expense"  aria-describedby="helpId" placeholder="">
+                                </div>
+                                <div class="mx-auto">
+                                <center><button class="btn-primary mx-auto" type="submit" >save</button></center>
+                                </div>
+                              </form>
+                              </div>
+                              </div>
+                            <div class="modal-footer" style="background-color: purple;">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                   
+                    </tbody>
+                  </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+          <!-- End of Main Content -->
+          <%- include("../patials/footer.ejs") %>
+      

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" type="image/x-icon" href="/img/logo.jpg">
+
+    <title>Add New Renters</title>
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/css/main-style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="/css/sb-admin-2.css" rel="stylesheet" />
+
+    <!-- Custom styles for this page -->
+    <link
+      href="/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <link rel="stylesheet" href="/css/spinner.css">
+
+  </head>
+
+  <body id="page-top">
+    
+  <div class="preloader is-active">
+    <div class="preloader__wrap">
+      <div class="spinner-grow text-danger" style="background-color: purple;"></div>
+    </div>
+  </div>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav sidebar sidebar-dark accordion bg-purple"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          href="/admin/home"
+        >
+          <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-house fa-2x"></i>
+          </div>
+          <div class="sidebar-brand-text mx-3">
+            <b style="font-family: Georgia; color: gold">Mi</b>-<i>Assets</i>
+          </div>
+        </a>
+
+        <li class="nav-item side-nav">
+          <a class="nav-link collapsed" href="/admin/home">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Add</div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item active side-nav">
+          <a
+            class="nav-link"
+            href="/admin/add-renter"
+            aria-expanded="true"
+            aria-controls="collapseTwo"
+          >
+            <i class="fas fa-fw fa-user"></i>
+            <span>Renters</span>
+          </a>
+        </li>
+
+        <!-- Nav Item - fixed assets Collapse Menu -->
+        <li class="nav-item side-nav">
+          <a
+            class="nav-link collapsed"
+            href="/admin/add-asset"
+            aria-expanded="true"
+            aria-controls="collapseUtilities"
+          >
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Fixed assets</span>
+          </a>
+        </li>
+        <li class="nav-item  side-nav">
+          <a
+            class="nav-link "
+            href="/admin/add-admin"
+            aria-expanded="true"
+            aria-controls="collapseUtilities"
+          >
+            <i class="fas fa-fw fa-users"></i>
+            <span>New Admin</span>
+          </a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">information</div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item side-nav">
+          <a
+            class="nav-link "
+            href="/admin/renters"
+            aria-expanded="true"
+            aria-controls="collapsePages"
+          >
+            <i class="fas fa-fw fa-users"></i>
+            <span>Rentals Details</span>
+          </a>
+        </li>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="/admin/assets">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Assets Details</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="/admin/depreciate">
+            <i class="fas fa-fw fa-egg"></i>
+            <span>Depreciation</span></a
+          >
+        </li>
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="/admin/reminder">
+            <i class="fas fa-fw fa-mail-bulk"></i>
+            <span>Reminders</span></a
+          >
+        </li>
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="/admin/profit">
+            <i class="fas fa-fw fa-kiwi-bird"></i>
+            <span>Profit</span></a
+          >
+        </li>
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="/admin/profile">
+            <i class="fas fa-fw fa-circle-user"></i> 
+            <span>Profile</span></a
+          >
+        </li>
+        <li class="nav-item side-nav">
+          <a class="nav-link" href="">
+            <i class="fas fa-fw fa-sign-out"></i>
+            <span>Sign Out</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block" />
+
+        <!-- Divider -->
+        <div class="sidebar-card d-none d-lg-flex">
+          <% if (admin.photo) { %>
+            <img class="sidebar-card-illustration mb-2" src="<%= admin.photo %>" alt="" />
+           
+          <% } else{ %>
+          <img class="sidebar-card-illustration mb-2" src="/img/profile.jpg" alt="" />
+    <% } %>
+          <p class="text-center mb-2">
+            <strong title="my profile"> <a href="/admin/profile"><%- include("../patials/adminName")  %></a></strong> welcome to Mi assets,
+          </p>
+        </div>
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav
+            class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+          >
+            <!-- Sidebar Toggle (Topbar) -->
+            <form class="form-inline">
+              <button
+                id="sidebarToggleTop"
+                class="btn btn-link d-md-none rounded-circle mr-3"
+              >
+                <i class="fa fa-bars"></i>
+              </button>
+            </form>
+
+            <!-- Topbar Navbar -->
+        <%- include("../patials/adminHeader") %>
+
+          </nav>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Add-new Reters -->
+            <p>Add new Renters in to the system by filling these below Details</p>
+            <div class="card">
+              
+                <div class="card-body rounded">
+                  <form action="" method="POST">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                          <div class="mt-1">
+                            <label for="" class="form-label" ><b>Surname</b> </label>
+                            <input type="text"
+                              class="form-control"  id="" aria-describedby="helpId" placeholder="Enter your surname here" name="surname">
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <div class="mt-1">
+                            <label for="" class="form-label"><b>Firstname</b> </label>
+                            <input type="text"
+                              class="form-control"  id="" aria-describedby="helpId" placeholder="Enter your firstname here" name="first_name">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="mt-1">
+                            <label for="" class="form-label"><b>Othername</b> </label>
+                            <input type="text"
+                              class="form-control"  id="" aria-describedby="helpId" placeholder="Enter your othername here" name="other_name">
+                          </div>
+                        </div>
+                        
+                      </div> <br>
+                      <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                          <div class="mt-1">
+                            <label for="" class="form-label"><b>Phone Number</b> </label>
+                            <input type="number"
+                              class="form-control"  id="" aria-describedby="helpId" placeholder="" name="phone_number">
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                          <div class="mt-1">
+                            <label for="" class="form-label"><b>email</b> </label>
+                            <input type="text"
+                              class="form-control"  id="" aria-describedby="helpId" placeholder="" name="email">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="mt-1">
+                            <label for="" class="form-label"><b>Address</b> </label>
+                            <input type="text"
+                              class="form-control"  id="" aria-describedby="helpId" placeholder="" name="address">
+                          </div>
+                        </div>
+                      </div> <br>
+                      <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                          <div class="mt-1">
+                            <label for="" class="form-label"><b>Rent Time</b> </label>
+                            <input type="date"
+                              class="form-control"  id="" aria-describedby="helpId" placeholder="" name="rent_time">
+                          </div>
+                          
+                          </div>
+                        
+                        <div class="col-md-4 col-sm-6">
+                          <div class="mt-1">
+                            <label for="" class="form-label"><b>Due Time</b> </label>
+                            <input type="date"
+                              class="form-control"  id="" aria-describedby="helpId" placeholder="" name="due_time">
+                          </div>
+                         
+                        </div> <br>
+                        <div class="col-md-4 col-sm-6">
+                          <div class="mt-1">
+                            <label for="" class="form-label"><b> Asset Rent</b></label>
+                            <select class="form-select form-select-lg"  id="" name="fixed_asset_id">
+                            <% for( let asset of Assets ) { %>
+                                  <option selected  value="<%- asset.id %>" name="fixed_asset_id"><%= asset.name%></option>
+                                
+                                  
+                                  <% } %>
+                                </select>
+                            </div>
+                        </div> <br>
+                        <button class="btn btn-sm w-25 mx-auto h-50 btn-primary " type="submit" role="button"> Add Renter</button>
+                      </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- End of Main Content -->
+   <!-- End of Main Content -->
+   <%- include("../patials/footer.ejs") %>
